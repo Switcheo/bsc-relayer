@@ -1,0 +1,31 @@
+// Copy and paste this file and remove comments
+{
+  "MultiChainConfig":{
+    "RestURL":"http://beta1.poly.network:20336", // address of Poly
+    "EntranceContractAddress":"0300000000000000000000000000000000000000", // CrossChainManagerContractAddress on Poly. No need to change
+    "WalletFile":"./wallet.dat", // your poly wallet
+    "WalletPwd":"123123123" //password
+  },
+  "BSCConfig":{
+    "SideChainId": 79, // bsc chainID
+    "RestURL":"https://data-seed-prebsc-1-s1.binance.org:8545/", // your bsc node
+    "ECCMContractAddress":"0xdB8e0cB4b48981BAf26c4844f084Fbb7303151ef",
+    "ECCDContractAddress":"0xE815E5B52A659d78c91B747f7A3b358cc4F04794",
+    "KeyStorePath": "./accounts", // path to store your bsc wallet
+    "KeyStorePwdSet": { // password to protect your ethereum wallet
+      "0x4253b8222d79361c0dc2e6d1e5dc96b99ffd4658": "123123123", // password for address
+    },
+    "BlockConfig": 15, // blocks to confirm a bsc tx
+    "HeadersPerBatch": 200 // number of poly headers commited to ECCM in one transaction at most
+  },
+  "BoltDbPath": "./db", // DB path
+  "RoutineNum": 64,
+  "TargetContracts": [
+    {
+      "0x8b7699fEc3B5F5bBA0568761f5Fe70736259C776": { // your lockproxy hash
+        "inbound": [6], // from which chain allowed
+        "outbound": [6] // to which chain allowed
+      }
+    }
+  ]
+}

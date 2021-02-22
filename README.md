@@ -34,7 +34,7 @@ Before running, you need feed the configuration file `config.json`.
 
 ```
 {
-  "MultiChainConfig":{
+  "PolyConfig":{
     "RestURL":"http://poly_ip:20336", // address of Poly
     "EntranceContractAddress":"0300000000000000000000000000000000000000", // CrossChainManagerContractAddress on Poly. No need to change
     "WalletFile":"./wallet.dat", // your poly wallet
@@ -71,7 +71,7 @@ After that, make sure you already have a ethereum wallet with ETH. The wallet fi
 Now, you can start relayer as follow: 
 
 ```shell
-./eth_relayer --cliconfig=./config.json 
+./bsc_relayer --cliconfig=./config.json 
 ```
 
 It will generate logs under `./Log` and check relayer status by view log file.
