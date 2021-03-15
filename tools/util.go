@@ -281,9 +281,9 @@ func GetCurveLabel(name string) (byte, error) {
 func GetExplorerUrl(chainId uint64) string {
 	switch chainId {
 	case params.MainnetChainConfig.ChainID.Uint64():
-		return "https://etherscan.io/tx/"
+		return "https://bscscan.com/tx/"
 	case params.RopstenChainConfig.ChainID.Uint64():
-		return "https://ropsten.etherscan.io/tx/"
+		return "https://testnet.bscscan.com/tx/"
 	default:
 		return "no url"
 	}
