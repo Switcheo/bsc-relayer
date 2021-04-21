@@ -453,6 +453,9 @@ func (this *EthSender) commitDepositEventsWithHeader(header *polytypes.Header, p
 		log.Errorf("commitDepositEventsWithHeader - get suggest sas price failed error: %s", err.Error())
 		return false
 	}
+	// multiply by 1.2 to beat other txns
+	gasPrice = gasPrice.Mul(gasPrice, big.NewInt(6))
+	gasPrice = gasPrice.Div(gasPrice, big.NewInt(5))
 	contractaddr := ethcommon.HexToAddress(this.config.BSCConfig.ECCMContractAddress)
 	callMsg := ethereum.CallMsg{
 		From: this.acc.Address, To: &contractaddr, Gas: 0, GasPrice: gasPrice,
@@ -500,6 +503,9 @@ func (this *EthSender) commitHeader(header *polytypes.Header, pubkList []byte) b
 		log.Errorf("commitHeader - get suggest sas price failed error: %s", err.Error())
 		return false
 	}
+	// multiply by 1.2 to beat other txns
+	gasPrice = gasPrice.Mul(gasPrice, big.NewInt(6))
+	gasPrice = gasPrice.Div(gasPrice, big.NewInt(5))
 	for _, sig := range header.SigData {
 		temp := make([]byte, len(sig))
 		copy(temp, sig)
