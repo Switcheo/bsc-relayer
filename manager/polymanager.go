@@ -454,7 +454,7 @@ func (this *EthSender) commitDepositEventsWithHeader(header *polytypes.Header, p
 		return false
 	}
 	// multiply by 1.2 to beat other txns
-	gasPrice = gasPrice.Mul(gasPrice, big.NewInt(6))
+	gasPrice = gasPrice.Mul(gasPrice, big.NewInt(7))
 	gasPrice = gasPrice.Div(gasPrice, big.NewInt(5))
 	contractaddr := ethcommon.HexToAddress(this.config.BSCConfig.ECCMContractAddress)
 	callMsg := ethereum.CallMsg{
